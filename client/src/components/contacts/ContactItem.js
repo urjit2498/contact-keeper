@@ -5,22 +5,23 @@ import ContactContext from '../../context/contact/contactContext';
 const ContactItem = ({ contact }) => {
   const contactContext = useContext(ContactContext);
   const { deleteContact, setCurrent, clearCurrent } = contactContext;
-  const { id, name, email, phone, type } = contact;
+
+  const { _id, name, email, phone, type } = contact;
 
   const onDelete = () => {
-    deleteContact(id);
+    deleteContact(_id);
     clearCurrent();
   };
 
   return (
     <div className='card bg-light'>
       <h3 className='text-primary text-left'>
-        <i style={{ color: '#000' }} className='fas fa-user-tie'></i> {name}{' '}
+        <i class='fas fa-user-tie' style={{ color: '#000' }}></i> {name}{' '}
         <span
           style={{ float: 'right' }}
           className={
             'badge ' +
-            (type === 'Professional' ? 'badge-success' : 'badge-primary')
+            (type === 'professional' ? 'badge-success' : 'badge-primary')
           }
         >
           {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -29,12 +30,12 @@ const ContactItem = ({ contact }) => {
       <ul className='list'>
         {email && (
           <li>
-            <i className='fas fa-envelope-open'></i> {email}
+            <i className='fas fa-envelope-open' /> {email}
           </li>
         )}
         {phone && (
           <li>
-            <i className='fas fa-phone'></i> {phone}
+            <i className='fas fa-phone' /> {phone}
           </li>
         )}
       </ul>

@@ -38,12 +38,7 @@ const ContactForm = () => {
     } else {
       updateContact(contact);
     }
-    setContact({
-      name: '',
-      email: '',
-      phone: '',
-      type: 'personal',
-    });
+    clearAll();
   };
 
   const clearAll = () => {
@@ -83,7 +78,7 @@ const ContactForm = () => {
         value='personal'
         checked={type === 'personal'}
         onChange={onChange}
-      />
+      />{' '}
       Personal{' '}
       <input
         type='radio'
@@ -91,8 +86,8 @@ const ContactForm = () => {
         value='professional'
         checked={type === 'professional'}
         onChange={onChange}
-      />
-      Professional{' '}
+      />{' '}
+      Professional
       <div>
         <input
           type='submit'
